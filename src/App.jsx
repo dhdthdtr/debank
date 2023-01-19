@@ -15,12 +15,13 @@ function App(){
   const [success, setSuccess] = useState(false)
   let navigate = useNavigate();
 
-  useEffect(() => {
-    localStorage.setItem('isSuccess', JSON.stringify(success))
-  }, [success])
+  // useEffect(() => {
+  //   localStorage.setItem('isSuccess', JSON.stringify(success))
+  // }, [success])
 
   const handleSubmit = async () => {
     setSuccess(true)
+    localStorage.setItem('isSuccess', JSON.stringify(success))
     navigate("home")
   }
 
@@ -29,24 +30,23 @@ function App(){
     navigate("/")
   }
 
+  if(!localStorage.getItem('isSuccess')){
+    return (
+      <Button size="lg" onClick={handleSubmit}>Login</Button>
+    )
+  }
   return (
-    <>
-      {success ? 
-        (<div className="homepage">
-            <Header handleLogout={logout}/>
-                <Routes>
-                    <Route path="/home" element={<h2>Home</h2>}></Route>
-                    <Route path="/randomTest" element={<RandomTest />}></Route>
-                    <Route path="/randomQuestion" element={<RandomQuestion />}></Route>
-                    <Route path="/news" element={<News />}></Route>
-                </Routes>
-            <Footer />
-            
-          </div>
-        ) : (<Button size="lg" onClick={handleSubmit}>Login</Button>)
-      }
-    </>
-  ) ;
+    <div className="homepage">
+      <Header handleLogout={logout}/>
+          <Routes>
+              <Route path="/home" element={<h2>Home</h2>}></Route>
+              <Route path="/randomTest" element={<RandomTest />}></Route>
+              <Route path="/randomQuestion" element={<RandomQuestion />}></Route>
+              <Route path="/news" element={<News />}></Route>
+          </Routes>
+      <Footer />
+    </div>
+  )
 }
 
 export default App;
