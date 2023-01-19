@@ -20,17 +20,18 @@ function App(){
   // }, [success])
 
   const handleSubmit = async () => {
-    setSuccess(true)
+    setSuccess(!success)
     localStorage.setItem('isSuccess', JSON.stringify(success))
     navigate("home")
   }
 
   const logout = () => {
-    setSuccess(false)
+    setSuccess(!success)
+    localStorage.setItem('isSuccess', JSON.stringify(success))
     navigate("/")
   }
 
-  if(!localStorage.getItem('isSuccess')){
+  if(!JSON.parse(localStorage.getItem('isSuccess'))){
     return (
       <Button size="lg" onClick={handleSubmit}>Login</Button>
     )
