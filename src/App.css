@@ -10,11 +10,12 @@ body{
 }
 
 #header{
-    background-color: #FFF;
+    background-color: #20232A;
     width: 100%;
     display: flex;
     flex-direction: column;
     height: auto;
+    color: white;
 }
 
 #title{
@@ -37,11 +38,41 @@ body{
 }
 
 #nav-bar .nav-item{
-    color: black;
+    color: white;
     text-decoration: none;
     padding: 15px;
 }
 
 #nav-bar .nav-item:hover{
     color: red;
+}
+
+#footer{
+    width: 100%;
+    background-color: #20232A;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    padding-top: 6px;
+}
+
+
+
+#prj-member-link{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+#prj-member-link a{
+    padding-bottom: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+#prj-member-link a:hover{
+    color: #547A9F;
 }
