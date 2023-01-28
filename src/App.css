@@ -14,11 +14,13 @@ body{
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 80px;
+    height: auto;
 }
 
 #title{
     width: min-content;
+    vertical-align: middle;
+    padding-top: 10px;
 }
 
 #header-top{
@@ -29,21 +31,17 @@ body{
 
 #nav-bar{
     height: 100%;
-    margin-bottom: 10px;
-}
-
-#nav-bar ul{
-    height: 100%;
     display: flex;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: center;
 }
 
-#nav-bar ul li{
-    list-style-type: none;
-}
-
-#nav-bar ul li .nav-item{
+#nav-bar .nav-item{
     color: black;
     text-decoration: none;
+    padding: 15px;
+}
+
+#nav-bar .nav-item:hover{
+    color: red;
 }
