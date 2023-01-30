@@ -1,10 +1,8 @@
-// import axios from "axios";
+
 import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-// import RSS from "vanilla-rss";
-// import Parser from "rss-parser";
 
 function News(){
     // RSS2JSON
