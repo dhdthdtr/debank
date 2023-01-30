@@ -19,12 +19,20 @@ function News(){
                 setFeeds(response.data.items)
             })
     },[])
+
+    // xử lý chuỗi description từ RSS feed
+    feeds.map(feed => {
+        var doc = new DOMParser().parseFromString(feed.description, "text/html");
+        console.log(typeof doc.querySelector("a"))
+    })
     
 
     return (
         <body id="body">
-            <h2>Tin mới nhất</h2>
-            <hr />
+            <div id="news-header">
+                <h2>Tin mới nhất</h2>
+                <hr />  
+            </div>
             {feeds.map(feed => (
                 <div id="news-item-wrapper">
                     <div id="news-img">
@@ -42,3 +50,6 @@ function News(){
 }
 
 export default News
+
+// doc.querySelector("body").innerText -> mô tả nhỏ ở dưới tiêu đề
+// 
