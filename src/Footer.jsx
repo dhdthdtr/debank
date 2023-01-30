@@ -13,9 +13,17 @@ function Footer(){
           </div>
         </div>
         <div className="prj-member">
-          
+        <h2 id="tag">Teacher</h2>
+          <div id="prj-member-link">
+            <span>Lê Minh Hiếu</span>
+          </div>
         </div>
-        <div id="source-link"></div>
+        <div id="prj-member">
+          <h2 id="tag">Source code</h2>
+          <div id="prj-member-link">
+            <a href="https://github.com/dhdthdtr">Github</a>
+            </div>
+          </div>
       </div> 
     );
 }
