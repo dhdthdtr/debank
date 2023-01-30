@@ -5,7 +5,7 @@
     font-family: sans-serif;
 }
 
-
+/* header */
 #header{
     background-color: #20232A;
     width: 100%;
@@ -44,10 +44,34 @@
     color: red;
 }
 
+/* body */
 #body{
     margin-top: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
+#news-item-wrapper{
+    width: 50vw;
+    padding: 5px;
+    box-shadow: 1px 1px;
+    border: 1px solid #333333;
+    margin: 0 auto 10px auto;
+    display: flex;
+
+}
+
+#news-item-wrapper img{
+    width: 196px;
+    height: 110px;
+}
+
+#news-item-wrapper #news-title-box{
+    /* text-overflow: ellipsis; */
+    margin-left: 10px;
+}
+
+/* footer */
 #footer{
     width: 100%;
     background-color: #20232A;
