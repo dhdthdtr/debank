@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 
 function Header({handleLogout}){
     return (
-        <div id="header">
+        <header id="header">
             <div id="header-top">
                 <h2 id="title">DEBANK</h2>
                 <nav id="nav-bar">
@@ -15,7 +15,7 @@ function Header({handleLogout}){
                 </nav>
                 <Button size="lg" onClick={handleLogout}>Logout</Button>
             </div>
-        </div>
+        </header>
     )
 }
 
