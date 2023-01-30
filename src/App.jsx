@@ -9,6 +9,7 @@ import './App.css';
 import RandomTest from "./RandomTest";
 import RandomQuestion from "./RandomQuestion";
 import News from './News'
+import Home from "./Home";
 
 
 function App(){
@@ -40,7 +41,7 @@ function App(){
     <div className="homepage">
       <Header handleLogout={logout}/>
           <Routes>
-              <Route path="/home" element={<h2>Home</h2>}></Route>
+              <Route path="/home" element={<Home />}></Route>
               <Route path="/randomTest" element={<RandomTest />}></Route>
               <Route path="/randomQuestion" element={<RandomQuestion />}></Route>
               <Route path="/news" element={<News />}></Route>
