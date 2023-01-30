@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Header from './Header'
 import Footer from './Footer'
@@ -15,10 +15,6 @@ import Home from "./Home";
 function App(){
   const [success, setSuccess] = useState(false)
   let navigate = useNavigate();
-
-  // useEffect(() => {
-  //   localStorage.setItem('isSuccess', JSON.stringify(success))
-  // }, [success])
 
   const handleSubmit = async () => {
     setSuccess(!success)
@@ -41,10 +37,11 @@ function App(){
     <div className="homepage">
       <Header handleLogout={logout}/>
           <Routes>
-              <Route path="/home" element={<Home />}></Route>
-              <Route path="/randomTest" element={<RandomTest />}></Route>
-              <Route path="/randomQuestion" element={<RandomQuestion />}></Route>
-              <Route path="/news" element={<News />}></Route>
+              <Route exact path="/" element={<Home />}></Route>
+              <Route exact path="/home" element={<Home />}></Route>
+              <Route exact path="/randomTest" element={<RandomTest />}></Route>
+              <Route exact path="/randomQuestion" element={<RandomQuestion />}></Route>
+              <Route exact path="/news" element={<News />}></Route>
           </Routes>
       <Footer />
     </div>
