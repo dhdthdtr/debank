@@ -62,18 +62,23 @@
     box-shadow: 1px 1px;
     border: 1px solid #333333;
     margin: 10px auto 0 auto;
-    display: flex;
 }
 
-#news-item-wrapper img{
+#news-subtitle img{
     width: 196px;
     height: 110px;
 }
 
-#news-item-wrapper #news-title-box{
-    text-overflow: ellipsis;
-    margin-left: 10px;
-    overflow: hidden;
+#news-title-box{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.news-title{
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 #subtitle{
@@ -83,12 +88,13 @@
     overflow: hidden;
 }
 
-@media (width <= 950px) {
-    #title-main{
+@media (width <= 780px) {
+    .news-title{
         width: 100%;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+        display: block;
     }
 }
 /* footer */
