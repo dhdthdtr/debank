@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
@@ -21,7 +20,8 @@ function News(){
     // xử lý chuỗi description từ RSS feed
     feeds.map(feed => {
         var doc = new DOMParser().parseFromString(feed.description, "text/html");
-        console.log(typeof doc.querySelector("a"))
+        console.log(doc.querySelector("a"))
+        console.log(feed.description)
     })
     
 
@@ -33,12 +33,10 @@ function News(){
             </div>
             {feeds.map(feed => (
                 <div id="news-item-wrapper">
-                    <div id="news-img">
-                        <img src="https://i1-vnexpress.vnecdn.net/2023/01/30/325468242-849903932932061-3724-3582-4826-1675036762.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=ytVcf7hb5khzQhQDm5H2eQ" />
-                    </div>
                     <div id="news-title-box">
-                        <h2 id="title-main">{feed.title}</h2>
-                        <span id="subtitle">Từng gây chú ý khi giành học bổng 9,3 tỷ đồng đến Đại học Johns Hopkins, sau 5 năm, Nguyễn Sao Ly trở thành nhà khoa học tại một công ty hoá sinh của Mỹ.</span>
+                        <a class="news-title" href={feed.link}>{feed.title}</a>
+                    </div>
+                    <div id="news-subtitle" dangerouslySetInnerHTML={{__html: feed.description}}>
                     </div>
                 </div>
             ))}
