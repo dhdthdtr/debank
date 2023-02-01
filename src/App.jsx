@@ -10,16 +10,26 @@ import RandomTest from "./RandomTest";
 import RandomQuestion from "./RandomQuestion";
 import News from './News'
 import Home from "./Home";
-
+import axios from "axios";
 
 function App(){
   const [success, setSuccess] = useState(false)
   const [name, setName] = useState("");
   let navigate = useNavigate();
 
+  
+
   const handleSubmit = () => {
     setSuccess(!success)
-    setName("")
+    // set random name
+    axios.get("https://randomuser.me/api/")
+    .then(res => res.data.results[0])
+    .then(data =>{
+      console.log(data.name.first)
+      setName(data.name.first)
+    })
+
+    // set local storage
     localStorage.setItem('isSuccess', JSON.stringify(success))
     localStorage.setItem("username", JSON.stringify(name))
     navigate("home")
@@ -27,9 +37,8 @@ function App(){
 
   const logout = () => {
     setSuccess(!success)
-    setName("Bang")
     localStorage.setItem('isSuccess', JSON.stringify(success))
-    localStorage.setItem("username", JSON.stringify(name))
+    localStorage.removeItem('username')
     navigate("/")
   }
 
