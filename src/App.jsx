@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Header from './Header'
@@ -11,6 +10,7 @@ import RandomQuestion from "./RandomQuestion";
 import News from './News'
 import Home from "./Home";
 import axios from "axios";
+import Login from "./Login";
 
 function App(){
   const [success, setSuccess] = useState(false)
@@ -44,7 +44,7 @@ function App(){
 
   if(!JSON.parse(localStorage.getItem('isSuccess'))){
     return (
-      <Button size="lg" onClick={handleSubmit}>Login</Button>
+      <Login handleLogin={handleSubmit}/>
     )
   }
   return (
