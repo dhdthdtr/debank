@@ -15,23 +15,21 @@ import Login from "./Login";
 function App(){
   const [success, setSuccess] = useState(false)
   const [name, setName] = useState("");
+  const [img, setImg] = useState("");
   let navigate = useNavigate();
-
-  
 
   const handleSubmit = () => {
     setSuccess(!success)
-    // set random name
-    axios.get("https://randomuser.me/api/")
-    .then(res => res.data.results[0])
-    .then(data =>{
-      console.log(data.name.first)
-      setName(data.name.first)
-    })
+    
+    fetch("https://284f-2402-800-639a-c0b8-2460-1d2d-62c1-cbfb.ap.ngrok.io/api/Users?USERNAME=bang&PASSWORD=123456",
+    {
+      mode: 'no-cors'
+  })
+    .then(res => res.json())
+    .then(data => console.log(data))
 
     // set local storage
     localStorage.setItem('isSuccess', JSON.stringify(success))
-    localStorage.setItem("username", JSON.stringify(name))
     navigate("home")
   }
 
@@ -42,14 +40,31 @@ function App(){
     navigate("/")
   }
 
+  const handleRegister = (username, password, fullname, dob, email) => {
+    setSuccess(!success);
+    axios.post(
+      "https://284f-2402-800-639a-c0b8-2460-1d2d-62c1-cbfb.ap.ngrok.io/api/Users", 
+      {
+        "username": username,
+        "password": password,
+        "fullname": fullname,
+        "dob": dob,
+        "email": email
+      }
+    )
+    .then(res => console.log(res.data))
+    localStorage.setItem('isSuccess', JSON.stringify(success))
+    navigate("home")
+  }
+
   if(!JSON.parse(localStorage.getItem('isSuccess'))){
     return (
-      <Login handleLogin={handleSubmit}/>
+      <Login handleLogin={handleSubmit} handleRegister={handleRegister}/>
     )
   }
   return (
     <div className="homepage">
-      <Header handleLogout={logout} data={JSON.parse(localStorage.getItem("username"))}/>
+      <Header handleLogout={logout} data={name} img={img}/>
           <Routes>
               <Route exact path="/" element={<Home />}></Route>
               <Route exact path="/home" element={<Home />}></Route>
